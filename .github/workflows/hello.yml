@@ -5,11 +5,11 @@ on:
     branches: [main]
 
 jobs:
-   greet:
-     runs-on: ubuntu-latest
-    steps:     
-      name: say hello to users
-      run: echo "Hello Dosto"
+  greet:
+    runs-on: ubuntu-latest
     steps:
-      name: say hello to logged in user
-      run: echo "Hello $USER"
+      - name: say hello to users
+        run: echo "Hello Dosto"
+
+      - name: say hello to logged in user
+        run: echo "Hello $USER"
