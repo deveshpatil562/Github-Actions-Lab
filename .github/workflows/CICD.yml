@@ -5,22 +5,22 @@ on:
   
 jobs:
   code:
-    runs_on: ubuntu:latest
+    runs-on: ubuntu:latest
     steps:
         - name: Code of the application
-        - run: "Commands to run"
+          run: echo "Commands to run"
   build:
-    runs_on: ubuntu:latest
+    runs-on: ubuntu:latest
     steps:
       - name: building stage
-      - run: "Commads for building"
+        run: echo "Commads for building"
   test: 
-    runs_on: ubuntu:latest
+    runs-on: ubuntu:latest
     steps:
-      -  name:  Testing stage
-      - run: "Testing of the code"
+      - name: Testing stage
+        run: echo "Testing of the code"
   deploy:
-    runs_on: ubuntu:latest
+    runs-on: ubuntu:latest
     steps:
       - name: Deployment stage
-      - run: "Deploying the application"
+        run: echo "Deploying the application"
