@@ -5,7 +5,7 @@ on:
   
 jobs:
   code:
-    runs-on: ubuntu:latest
+    runs-on: ubuntu-latest
     steps:
         - name: Code of the application
           run: echo "Commands to run"
