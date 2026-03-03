@@ -1,0 +1,26 @@
+#Name of the workflow
+name: CICD
+on: 
+  workflow_dispatch:
+  
+jobs:
+  code:
+    runs_on: ubuntu:latest
+    steps:
+        - name: Code of the application
+        - run: "Commands to run"
+  build:
+    runs_on: ubuntu:latest
+    steps:
+      - name: building stage
+      - run: "Commads for building"
+  test: 
+    runs_on: ubuntu:latest
+    steps:
+      -  name:  Testing stage
+      - run: "Testing of the code"
+  deploy:
+    runs_on: ubuntu:latest
+    steps:
+      - name: Deployment stage
+      - run: "Deploying the application"
