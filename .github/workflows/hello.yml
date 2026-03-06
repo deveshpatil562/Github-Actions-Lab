@@ -7,13 +7,13 @@ jobs:
   greet:
     runs-on: ubuntu-latest
     steps:
-      - name: Check out the code
+      - name: Checkout the code
         uses: actions/checkout@v4
 
-      - name: Print greeting
-        run: echo "Hello from GitHub Actions!"
+      - name: Print Greeting
+        run: echo "Hello From GitHub Actions"
 
-      - name: Print current date and time
+      - name: Current date and time
         run: date
 
       - name: Print branch name
@@ -22,5 +22,5 @@ jobs:
       - name: List files in repo
         run: ls -la
 
-      - name: Print runner OS
+      - name: Print OS Runner
         run: echo "Runner OS: $RUNNER_OS"
