@@ -1,7 +1,6 @@
 name: hello
 
 on:
-  push:
   workflow_dispatch:
     
 
