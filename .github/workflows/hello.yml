@@ -1,14 +1,14 @@
 name: hello
 
 on:
- workflow_dispatch:   
-
+ push:
+   
 jobs:
   greet:
     runs-on: ubuntu-latest
     steps:
-      - name: say hello to users
-        run: echo "Hello Dosto"
+      - name: Checkout the code 
+        run: actions/checkout@v4
 
-      - name: say hello to logged in user
-        run: echo "Hello $USER"
+      - name: Print Greeting
+        run: echo "Hello From Github Actions"
