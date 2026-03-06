@@ -2,6 +2,8 @@ name: hello
 
 on:
   push:
+  workflow_dispatch:
+    
 
 jobs:
   greet:
