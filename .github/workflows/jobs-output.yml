@@ -7,7 +7,7 @@ jobs:
   set-date:
     runs-on: ubuntu-latest
     outputs:
-      today: ${{ steps.date.outputs.today }}
+      today: ${{ steps.date.outputs.date }}
     steps:
       - id: date
         run: echo "date=$(date)" >> $GITHUB_OUTPUT
@@ -17,4 +17,4 @@ jobs:
     needs: set-date
     steps:
       - name: Print Date
-        run: echo "Todays date is ${{ needs.set-date.outputs.date}}"
+        run: echo "Todays date is ${{ needs.set-date.outputs.today}}"
