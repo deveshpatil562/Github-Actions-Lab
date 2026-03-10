@@ -9,7 +9,7 @@ jobs:
     outputs:
       today: ${{ steps.date.outputs.today }}
     steps:
-      - name: date
+      - id: date
         run: echo "date=$(date)" >> $GITHUB_OUTPUT
         
   use-date:
