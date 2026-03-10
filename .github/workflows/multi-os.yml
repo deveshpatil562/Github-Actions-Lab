@@ -7,8 +7,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Print system info
+        shell: bash
         run: |
-          'echo "OS: $(uname -r)"'
+          'echo "OS: $(uname -s)"'
           'echo "Hostname: $(hostname)"'
           'echo "User: $(whoami)"'
 
@@ -25,7 +26,8 @@ jobs:
     runs-on: macos-latest
     steps:
       - name: Print system info
+        shell: bash
         run: |
-          'echo "OS: $(uname -r)"'
+          'echo "OS: $(uname -s)"'
           'echo "Hostname: $(hostname)"'
           'echo "User: $(whoami)"'
