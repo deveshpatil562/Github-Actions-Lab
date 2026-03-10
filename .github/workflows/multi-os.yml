@@ -8,7 +8,7 @@ jobs:
     steps:
       - name: Print system info
         run: |
-          'echo "OS: $(uname -s)"'
+          'echo "OS: $(uname -r)"'
           'echo "Hostname: $(hostname)"'
           'echo "User: $(whoami)"'
 
@@ -26,6 +26,6 @@ jobs:
     steps:
       - name: Print system info
         run: |
-          'echo "OS: $(uname -s)"'
+          'echo "OS: $(uname -r)"'
           'echo "Hostname: $(hostname)"'
           'echo "User: $(whoami)"'
