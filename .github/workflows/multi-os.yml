@@ -9,9 +9,9 @@ jobs:
       - name: Print system info
         shell: bash
         run: |
-          'echo "OS: $(uname -s)"'
-          'echo "Hostname: $(hostname)"'
-          'echo "User: $(whoami)"'
+          echo "OS: $(uname -s)"
+          echo "Hostname: $(hostname)"
+          echo "User: $(whoami)"
 
   windows-job:
     runs-on: windows-latest
@@ -28,6 +28,6 @@ jobs:
       - name: Print system info
         shell: bash
         run: |
-          'echo "OS: $(uname -s)"'
-          'echo "Hostname: $(hostname)"'
-          'echo "User: $(whoami)"'
+          echo "OS: $(uname -s)"
+          echo "Hostname: $(hostname)"
+          echo "User: $(whoami)"
