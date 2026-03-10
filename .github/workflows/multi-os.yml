@@ -1,33 +1,21 @@
 name: Multi-OS Workflow
 
-on: [push, workflow_dispatch]
+on: [workflow_dispatch]
 
 jobs:
   ubuntu-job:
     runs-on: ubuntu-latest
     steps:
-      - name: Print system info
-        shell: bash
-        run: |
-          echo "OS: $(uname -s)"
-          echo "Hostname: $(hostname)"
-          echo "User: $(whoami)"
+      - name: Print Docker version
+        run: docker --version
 
-  windows-job:
-    runs-on: windows-latest
-    steps:
-        - name: Print system info
-          run: |
-            'echo "OS: Windows"'
-            hostname
-            whoami
+      - name: Print python version
+        run: python3 --version
 
-  macos-job:
-    runs-on: macos-latest
-    steps:
-      - name: Print system info
-        shell: bash
-        run: |
-          echo "OS: $(uname -s)"
-          echo "Hostname: $(hostname)"
-          echo "User: $(whoami)"
+      - name: Print Node.js version
+        run: node --version
+
+      - name: Print Git version
+        run: git --version
+
+  
