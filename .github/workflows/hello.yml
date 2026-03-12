@@ -1,0 +1,27 @@
+name: hello
+
+on:
+  workflow_dispatch:
+    
+
+jobs:
+  greet:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the code
+        uses: actions/checkout@v4
+
+      - name: Print Greeting
+        run: echo "Hello From GitHub Actions"
+
+      - name: Current date and time
+        run: date
+
+      - name: Print branch name
+        run: echo "${{ github.ref_name }}"
+
+      - name: List files in repo
+        run: ls -la
+
+      - name: Print OS Runner
+        run: echo "$RUNNER_OS"
