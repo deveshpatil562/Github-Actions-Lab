@@ -1,0 +1,22 @@
+name: Upload artifact demo
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v4
+
+      - name: Generate Tesr report
+        run: |
+          echo "Test Completed successfully..." > test-report.txt
+          echo "Timestamp: $(date)" >> test-report.txt
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-report
+          path: test-report.txt
