@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>DevOps CI/CD Pipeline</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+background:#0f172a;
+color:white;
+text-align:center;
+padding:40px;
+}
+
+.container{
+max-width:900px;
+margin:auto;
+}
+
+h1{
+font-size:48px;
+margin-bottom:20px;
+color:#38bdf8;
+}
+
+p{
+font-size:18px;
+margin-bottom:30px;
+color:#cbd5f5;
+}
+
+.pipeline{
+display:flex;
+justify-content:space-between;
+flex-wrap:wrap;
+margin-top:40px;
+}
+
+.stage{
+background:#1e293b;
+border-radius:10px;
+padding:25px;
+width:160px;
+margin:10px;
+transition:0.3s;
+}
+
+.stage:hover{
+transform:scale(1.1);
+background:#334155;
+}
+
+.stage h3{
+color:#22c55e;
+margin-bottom:10px;
+}
+
+.footer{
+margin-top:60px;
+color:#94a3b8;
+}
+
+.btn{
+display:inline-block;
+margin-top:20px;
+padding:12px 25px;
+background:#22c55e;
+color:white;
+border-radius:6px;
+text-decoration:none;
+transition:0.3s;
+}
+
+.btn:hover{
+background:#16a34a;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🚀 DevOps CI/CD Pipeline</h1>
+
+<p>
+This website is deployed using <b>Docker + GitHub Actions CI/CD Pipeline</b>
+</p>
+
+<a class="btn" href="#">Deployment Successful</a>
+
+<div class="pipeline">
+
+<div class="stage">
+<h3>Code</h3>
+<p>GitHub Repo</p>
+</div>
+
+<div class="stage">
+<h3>Build</h3>
+<p>Docker Image</p>
+</div>
+
+<div class="stage">
+<h3>Test</h3>
+<p>CI Checks</p>
+</div>
+
+<div class="stage">
+<h3>Deploy</h3>
+<p>Production</p>
+</div>
+
+</div>
+
+<div class="footer">
+<p>Built by DevOps Engineer 🚀</p>
+</div>
+
+</div>
+
+</body>
+</html>
