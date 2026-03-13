@@ -22,6 +22,7 @@ jobs:
         run: echo "sha_short=${GITHUB_SHA::7}" >> $GITHUB_ENV
 
       - name: Build and Push
+        if: github.ref == 'refs/heads/main'
         uses: docker/build-push-action@v5
         with:
           context: .
