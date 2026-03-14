@@ -1,0 +1,32 @@
+name: Reusable Build Workflow
+
+on:
+  workflow_call:
+    inputs:
+      app_name:
+        description: "Devops Application"
+        required: true
+        type: string
+      environment:
+        description: "Deployment Environment"
+        required: true
+        type: string
+        default: staging
+    secrets:
+      DOCKER_TOKEN:
+        description: "Docker authentication token"
+        required: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Print Build info
+        run: echo "Building ${{ inputs.app_name }} for ${{ inputs.environment }}"
+
+      - name: Verify Docker token
+        run: |
+          echo "Docker token is set: ${{ secrets.DOCKER_TOKEN != '' }}"
