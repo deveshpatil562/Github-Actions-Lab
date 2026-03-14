@@ -13,7 +13,8 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Use custom greet action
-        uses: ./.github/actions/setup-and-greet
-        with:
-          name: "Devesh"
-          language: "en"
+        uses: ./.github/workflows/setup-and-greet
+       with:
+         name: "Devesh"
+         language: "en"
+
