@@ -40,3 +40,5 @@ jobs:
       - name: Generate version
         id: version
         run: echo "build_version=v1.0-${GITHUB_SHA::7}" >> $GITHUB_OUTPUT
+
+        ittimrriimim
