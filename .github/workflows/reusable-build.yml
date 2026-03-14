@@ -16,6 +16,10 @@ on:
       DOCKER_TOKEN:
         description: "Docker authentication token"
         required: true
+    outputs:
+      build_version:
+        description: "Generated build version"
+        value: ${{ jobs.build.outputs.build_version }}
 
 jobs:
   build:
@@ -30,3 +34,7 @@ jobs:
       - name: Verify Docker token
         run: |
           echo "Docker token is set: ${{ secrets.DOCKER_TOKEN != '' }}"
+
+      - name: Generate version
+        id: version
+        run: echo "build_version=v1.0-${GITHUB_SHA::7}" >> $GITHUB_OUTPUT
