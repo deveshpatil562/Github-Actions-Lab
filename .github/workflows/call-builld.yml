@@ -1,22 +1,42 @@
-name: Call Reusable Build
+name: Reusable Build Workflow
 
 on:
-  push:
-    branches:
-      - main
+  workflow_call:
+    inputs:
+      app_name:
+        description: "Application name"
+        required: true
+        type: string
+      environment:
+        description: "Deployment environment"
+        required: true
+        type: string
+        default: staging
+    secrets:
+      docker_token:
+        description: "Docker authentication token"
+        required: true
+    outputs:
+      build_version:
+        description: "Generated build version"
+        value: ${{ jobs.build.outputs.build_version }}
 
 jobs:
   build:
-    uses: ./.github/workflows/reusable-build.yml
-    with:
-      app_name: "my-web-app"
-      environment: "production"
-    secrets:
-      docker_token: ${{ secrets.DOCKER_TOKEN }}
-
-  report:
-    needs: build
     runs-on: ubuntu-latest
+    outputs:
+      build_version: ${{ steps.version.outputs.build_version }}
     steps:
-      - name: Print build version
-        run: echo "Build version: ${{ needs.build.outputs.build_version }}"
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Print build info
+        run: echo "Building ${{ inputs.app_name }} for ${{ inputs.environment }}"
+
+      - name: Verify Docker token
+        run: | 
+          echo "Docker token is set: ${{ secrets.docker_token != '' }}"
+
+      - name: Generate version
+        id: version
+        run: echo "build_version=v1.0-${GITHUB_SHA::7}" >> $GITHUB_OUTPUT
