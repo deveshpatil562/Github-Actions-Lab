@@ -1,0 +1,23 @@
+name: Test Composite Action
+
+on:
+  workflow_dispatch:
+
+jobs:
+  greet:
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+
+      - name: Run Custom Composite Action
+        id: greet-step
+        uses: ./.github/actions/setup-and-greet
+        with:
+          name: Devesh
+          language: en
+
+      - name: Verify Output
+        run: echo "Was greeted? ${{ steps.greet-step.outputs.greeted }}"
