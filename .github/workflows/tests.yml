@@ -9,19 +9,23 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
-        
-      - name: Run unit test simulation
-        run: echo "unit tests passed"
 
-      - name: Check for TODOs in code
+      - name: Unit test simulation
+        run: echo "Unit tests passed"
+
+      - name: Check for TODOs in code (excluding .git)
         run: |
-          if grep -R "TODO" .; then
-            echo " Found TODOs in code"
+          if grep -R "TODO" . --exclude-dir=.git; then
+            echo "Found TODOs in code"
             exit 1
           else
             echo "No TODOs found"
           fi
 
-      - name: Link check simulation
-        run: echo "Link check passed"
-           
+      - name: Ensure README exists
+        run: |
+          if [ ! -f "README.md" ]; then
+            echo "README.md is missing"
+            exit 1
+          fi
+          echo "README.md exists"
