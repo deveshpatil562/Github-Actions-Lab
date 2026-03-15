@@ -3,10 +3,11 @@ name: External Trigger
 on:
   repository_dispatch:
     types: [deploy-request]
+  workflow_dispatch:   # <-- adds manual trigger button
 
 jobs:
   external:
     runs-on: ubuntu-latest
     steps:
-      - name: Print environment from payload
-        run: 'echo "Triggered by external system, environment: ${{ github.event.client_payload.environment }}"'
+      - run: 'echo "Triggered by: ${{ github.event_name }}"'
+      - run: 'echo "Environment: ${{ github.event.client_payload.environment }}"'
