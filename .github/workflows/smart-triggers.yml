@@ -1,0 +1,19 @@
+name: Smart Triggers
+
+on:
+  push:
+    branches:
+      - main
+      - release/*
+    paths:
+      - 'src/**'
+      - 'app/**'
+    paths-ignore:
+      - '*.md'
+      - 'docs/**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Triggered because src/ or app/ changed"
