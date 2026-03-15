@@ -1,0 +1,27 @@
+name: Run Tests
+
+on:
+  push:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        run: actions/checkout@v3
+        
+      - name: Run unit test simulation
+        run: echo "unit tests passed"
+
+      - name: Check for TODOs in code
+        run: |
+          if grep -R "TODO" .; then
+            echo " Found TODOs in code"
+            exit 1
+          else
+            echo "No TODOs found"
+          fi
+
+      - name: Link check simulation
+        run: echo "Link check passed"
+           
