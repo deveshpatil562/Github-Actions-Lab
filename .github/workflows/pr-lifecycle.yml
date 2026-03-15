@@ -1,0 +1,25 @@
+name: PR lifecycle Demo
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, closed]
+
+jobs:
+  pr-info:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print Event type
+        run: 'echo "Event type: ${{ github.event.action }}"'
+
+      - name: Print PR Title
+        run: 'echo "PR Title: ${{ github.event.pull_request.title }}"'
+
+      - name: Print PR author
+        run: 'echo "Print PR Author: ${{ github.event.pull_request.user.login }}"'
+
+      - name: Print source and Target branches
+        run: 'echo "Source: ${{ github.event.pull_request.head.ref }} -> Target: ${{ github.event.pull_request.base.ref }}"'
+
+      - name: Run only when PR is merged
+        if: github.event.action == 'closed' && github.event.pull_request.merged == true
+        run: echo "This PR was merged"
