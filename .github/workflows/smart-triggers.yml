@@ -8,9 +8,7 @@ on:
     paths:
       - 'src/**'
       - 'app/**'
-    paths-ignore:
-      - '*.md'
-      - 'docs/**'
+
 
 jobs:
   build:
