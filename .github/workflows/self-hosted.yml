@@ -1,0 +1,20 @@
+name: Self Hosted
+
+on:
+  workflow_dispatch:
+
+jobs:
+  self-hosting:
+    runs-on: [self-hosted, my-linux-runner]
+    steps:
+      - name: Print Hostname
+        run: echo "$(hostname)"
+
+      - name: Print working directory
+        run: echo "$(pwd)"
+
+      - name: Crate a file
+        run: echo "Hello from self-hosted runner!!!" > ~/actions-runner/testfile.txt
+
+      - name: Verify file exists
+        run: ls -l ~/actions-runner/testfile.txt

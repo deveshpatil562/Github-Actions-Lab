@@ -4,6 +4,8 @@ Welcome to my personal GitHub Actions learning repository.
 
 This repo documents my **day-to-day learning, hands-on practice, experiments, and debugging experience** while mastering CI/CD and DevOps automation.
 
+[![Docker Publish](https://github.com/deveshpatil562/Github-Actions-Lab/actions/workflows/docker-publish.yml/badge.svg)](https://github.com/deveshpatil562/Github-Actions-Lab/actions/workflows/docker-publish.yml)
+
 ---
 
 ## 📌 About This Repository
